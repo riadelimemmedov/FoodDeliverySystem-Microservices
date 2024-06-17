@@ -1,0 +1,9 @@
+# pull official base image
+FROM rabbitmq:management
+
+# Set local timezone.
+ENV TZ=Asia/Baku
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+# RUN ["chmod", "+x", "/monitoring/check_rabbitmq.sh"]
+# ENTRYPOINT ["/monitoring/check_rabbitmq.sh"]
