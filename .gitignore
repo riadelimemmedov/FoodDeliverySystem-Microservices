@@ -170,3 +170,11 @@ requirements_dev.*
 .pre-commit-config.yaml
 Docker/config
 note.txt
+
+Docker/data/*
+!Docker/data/.gitkeep
+Docker/logs/*
+!Docker/logs/.gitkeep
+Docker/data/*
+!Docker/data/.gitkeep
+docker/

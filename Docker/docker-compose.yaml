@@ -65,6 +65,26 @@ services:
     networks:
       - proxynet
 
+  vault:
+    build:
+      context: .
+      dockerfile: Dockerfile.vault
+    restart: always
+    container_name: vault
+    volumes:
+      - ./docker/vault-config.json:/vault/config/vault-config.json
+      - ./docker/data:/vault/data
+      - ./docker/logs:/vault/logs
+      - ./docker/policies:/vault/policies
+    ports:
+      - 8200:8200
+    environment:
+      - VAULT_ADDR=http://0.0.0.0:8200
+      - VAULT_API_ADDR=http://0.0.0.0:8200
+    command: server -config=Docker/vault/config/vault-config.json
+    cap_add:
+      - IPC_LOCK
+
 volumes:
   redis-data:
   mongo-data:
