@@ -178,3 +178,4 @@ Docker/logs/*
 Docker/data/*
 !Docker/data/.gitkeep
 /Docker/docker
+/PaymentService/src/core/.env

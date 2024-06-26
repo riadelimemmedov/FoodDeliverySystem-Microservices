@@ -1,0 +1,7 @@
+from os import getenv
+
+# Constants
+STRIPE_PUBLISHABLE_KEY = getenv("STRIPE_PUBLISHABLE_KEY")
+STRIPE_SECRET_KEY = getenv("STRIPE_SECRET_KEY")
+
+DOMAIN_URL = getenv("DOMAIN_URL")
