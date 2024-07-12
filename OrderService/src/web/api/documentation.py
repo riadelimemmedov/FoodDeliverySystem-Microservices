@@ -10,6 +10,23 @@ order_id_documentation = Path(
 )
 """ OpenAPI order ID documentation. """
 
+health_example = {
+    "status": True,
+    "cert_remaining_days": 820,
+    "version": f"{config.version}",
+    "name": f"{config.service_name}",
+    "resources": [
+        {"name": "Certificate.valid", "status": True},
+        {"name": "MongoDb", "status": True},
+        {"name": "RabbitMq", "status": True},
+        {"name": "PaymentService", "status": True},
+        {"name": "KitchenService", "status": True},
+        {"name": "DeliveryService", "status": True},
+        {"name": "CustomerService", "status": True},
+    ],
+}
+""" OpenAPI health response documentation. """
+
 resource_example = {
     "status": True,
     "cert_remaining_days": 820,

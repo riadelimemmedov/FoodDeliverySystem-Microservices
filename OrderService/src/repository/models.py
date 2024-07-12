@@ -1,7 +1,8 @@
 # BUILTIN modules
 from enum import Enum
 from uuid import UUID
-from datetime import datetime, UTC
+from datetime import datetime
+from pytz import UTC
 from typing import Optional, Callable, List
 
 # Third party modules
@@ -141,3 +142,82 @@ class MongoBase(BaseModel):
             parsed["_id"] = str(parsed.pop("id"))
 
         return parsed
+
+
+# !---------------------------------------------------------
+#
+class StateUpdateSchema(BaseModel):
+    """Representation of an Order status history in the system.
+
+    :ivar status: Current order status.
+    :ivar when: Datetime for updated item(s).
+    """
+
+    status: Status = Field(**order_doc["status"])
+    when: datetime = Field(default_factory=utcnow, **order_doc["when"])
+
+
+# !---------------------------------------------------------
+#
+class OrderUpdateModel(MongoBase):
+    """Representation of an Order in the system.
+
+    :ivar items: List of ordered items.
+    :ivar customer_id: Customer identity.
+    :ivar kitchen_id: Kitchen identity.
+    :ivar delivery_id: Delivery identity.
+    :ivar status: Current order status.
+    :ivar updated: Datetime for updated order.
+    :ivar created: Datetime for created order.
+    """
+
+    items: conlist(OrderItem, min_length=1)
+    customer_id: UUID = Field(**order_doc["customer_id"])
+    kitchen_id: Optional[UUID] = Field(**order_doc["kitchen_id"])
+    delivery_id: Optional[UUID] = Field(**order_doc["delivery_id"])
+    status: Status = Field(default=Status.CREA, **order_doc["status"])
+    updated: Optional[List[StateUpdateSchema]] = Field(**order_doc["updated"])
+    created: datetime = Field(default_factory=utcnow, **order_doc["created"])
+
+
+class OrderModel(OrderUpdateModel):
+    """Representation of an Order in the system.
+
+    :ivar id: Order identity.
+    """
+
+    id: UUID = Field(default_factory=uuid7)
+
+
+# !---------------------------------------------------------
+#
+def dict_of(payload: OrderModel) -> dict:
+    """Return a dict representation of an OrderModel that json.dumps will accept.
+
+    All datatime and UUID objects are converted to str.
+
+    :param payload: Current Order object.
+    :return: Serializable dict representation of an Order.
+    """
+
+    return {
+        key: (
+            # This row converts datetime values to str within a list of dicts.
+            list(
+                map(
+                    lambda elem: {"status": elem["status"], "when": str(elem["when"])},
+                    value,
+                )
+            )
+            if key == "updated"
+            # This row handles values that don't need a conversion.
+            else value
+            if key in {"items", "status"}
+            # This row converts all base (not in a structure) UUID and datetime values to str.
+            else str(value)
+            if value
+            else None
+        )
+        # Iterate over all elements in the payload.
+        for key, value in payload.model_dump().items()
+    }
