@@ -1,8 +1,8 @@
 # BUILTIN modules
-import sys
 import logging
-from typing import cast
+import sys
 from types import FrameType
+from typing import cast
 
 # Third party modules
 from loguru import logger

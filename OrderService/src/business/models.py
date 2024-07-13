@@ -1,13 +1,14 @@
 # BUILTIN modules
-from uuid import UUID
 from typing import Any
+from uuid import UUID
 
 # Third party modules
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 # Local modules
 from ..repository.models import OrderItems, Status
-from .documentation import metadata_example, metadata_documentation as meta_doc
+from .documentation import metadata_documentation as meta_doc
+from .documentation import metadata_example
 
 
 # !---------------------------------------------------------

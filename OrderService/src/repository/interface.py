@@ -1,6 +1,6 @@
 # BUILTIN modules
+from typing import List, Protocol
 from uuid import UUID
-from typing import Protocol, List
 
 # Local modules
 from .models import OrderModel

@@ -1,7 +1,7 @@
 from fastapi import Path
 
 # Local modules
-from ...config.setup import config
+from ...core.setup import config
 
 order_id_documentation = Path(
     ...,

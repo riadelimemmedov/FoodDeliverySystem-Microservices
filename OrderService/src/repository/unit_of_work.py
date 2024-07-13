@@ -4,8 +4,8 @@ from motor.motor_asyncio import AsyncIOMotorClientSession
 
 # From local modules.
 from .db import Engine
-from .order_db_adapter import OrderDbAdapter
 from .mongo_repository import MongoRepository
+from .order_db_adapter import OrderDbAdapter
 
 
 # !------------------------------------------------------------------------

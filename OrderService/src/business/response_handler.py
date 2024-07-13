@@ -1,21 +1,22 @@
 # BUILTIN modules
 from uuid import UUID
 
-# Third party modules
-from loguru import logger
 from httpx import AsyncClient, ConnectTimeout
 
+# Third party modules
+from loguru import logger
+
 # Local modules
-from ..config.setup import config
-from ..tools.url_cache import UrlServiceCache
+from ..core.setup import config
 from ..repository.interface import IRepository
-from .models import KitchenPayload, DeliveryPayload
-from ..repository.models import Status, OrderModel, StateUpdateSchema
+from ..repository.models import OrderModel, StateUpdateSchema, Status
+from ..tools.url_cache import UrlServiceCache
+from .models import DeliveryPayload, KitchenPayload
 
 
 # !------------------------------------------------------------------------
 #
-class OrderResponseLogic:
+class OrderPaymentResponseLogic:
     """
     This class implements the OrderService business logic layer
     for RabbitMQ response messages.

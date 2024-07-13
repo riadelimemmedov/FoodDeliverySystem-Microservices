@@ -1,6 +1,6 @@
 # BUILTIN modules
-from uuid import UUID
 from typing import Protocol
+from uuid import UUID
 
 # Local modules
 from .models import PaymentModel

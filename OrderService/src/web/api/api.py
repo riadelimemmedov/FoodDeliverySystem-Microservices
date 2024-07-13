@@ -1,23 +1,25 @@
 # BUILTIN modules
-from uuid import UUID
 from typing import List
+from uuid import UUID
+
+from fastapi import APIRouter, Depends, status
 
 # Third party modules
 from fastapi.responses import Response
-from fastapi import APIRouter, status, Depends
+
+from ...core.security import validate_authentication
+from ...repository.unit_of_work import UnitOfRepositoryWork
+from .documentation import order_id_documentation
+from .models import (
+    ConnectError,
+    FailedUpdateError,
+    NotFoundError,
+    OrderPayload,
+    OrderResponse,
+)
 
 # Local modules
 from .order_api_adapter import OrderApiAdapter
-from .documentation import order_id_documentation
-from ...core.security import validate_authentication
-from ...repository.unit_of_work import UnitOfRepositoryWork
-from .models import (
-    OrderPayload,
-    OrderResponse,
-    NotFoundError,
-    FailedUpdateError,
-    ConnectError,
-)
 
 # Constants
 ROUTER = APIRouter(

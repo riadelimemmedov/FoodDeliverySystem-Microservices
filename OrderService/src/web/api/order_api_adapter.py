@@ -1,17 +1,18 @@
 # BUILTIN modules
-from uuid import UUID
 from typing import List
+from uuid import UUID
 
 # Third party modules
 from fastapi import HTTPException
 
-# Local modules
-from ...repository.models import OrderModel
 from ...business.models import PaymentResponse
-from ...repository.interface import IRepository
-from .models import OrderResponse, OrderPayload
 from ...business.request_handler import OrderApiLogic
 from ...business.response_handler import OrderPaymentResponseLogic
+from ...repository.interface import IRepository
+
+# Local modules
+from ...repository.models import OrderModel
+from .models import OrderPayload, OrderResponse
 
 
 # !------------------------------------------------------------------------

@@ -1,9 +1,10 @@
 # BUILTIN modules
 from uuid import UUID
 
+from .interface import IRepository
+
 # Local modules
 from .models import PaymentModel
-from .interface import IRepository
 
 
 # !------------------------------------------------------------------------

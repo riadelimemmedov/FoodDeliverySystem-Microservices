@@ -1,10 +1,10 @@
 # Third party modules
-import uvicorn
 import ujson as json
+import uvicorn
+from src.core.setup import config
 
 # Local modules
 from src.web.main import app
-from src.core.setup import config
 
 
 # !---------------------------------------------------------

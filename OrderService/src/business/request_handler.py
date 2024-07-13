@@ -1,19 +1,20 @@
 # BUILTIN modules
-from uuid import UUID
 from datetime import datetime
-from typing import Optional, List
+from typing import List, Optional
+from uuid import UUID
 
 # Third party modules
 from fastapi import HTTPException
 from httpx import AsyncClient, ConnectTimeout
 
+from ..core.setup import SSL_CONTEXT, config
+from ..repository.interface import IRepository
+from ..repository.models import OrderItems, OrderModel, StateUpdateSchema, Status
+from ..tools.url_cache import UrlServiceCache
+
 # Local modules
 from ..web.api.models import OrderResponse
-from ..core.setup import config, SSL_CONTEXT
-from ..tools.url_cache import UrlServiceCache
-from ..repository.interface import IRepository
-from .models import PaymentPayload, MetadataSchema
-from ..repository.models import Status, OrderItems, OrderModel, StateUpdateSchema
+from .models import MetadataSchema, PaymentPayload
 
 
 # !------------------------------------------------------------------------

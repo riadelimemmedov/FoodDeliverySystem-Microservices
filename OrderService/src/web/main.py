@@ -1,9 +1,9 @@
 # BUILTIN modules
+import asyncio
 import os
 import signal
-import asyncio
-from pathlib import Path
 from contextlib import asynccontextmanager
+from pathlib import Path
 
 # Third party modules
 from fastapi import FastAPI
@@ -12,13 +12,13 @@ from fastapi.staticfiles import StaticFiles
 # Local modules
 from ..core.setup import config
 from ..repository.db import Engine
-from .api import api, health_route
-from .api.models import ValidStatus
-from ..tools.rabbit_client import RabbitClient
 from ..repository.unit_of_work import UnitOfRepositoryWork
-from .order_event_adapter import OrderEventAdapter
 from ..tools.custom_logging import create_unified_logger
-from .api.documentation import servers, license_info, tags_metadata, description
+from ..tools.rabbit_client import RabbitClient
+from .api import api, health_route
+from .api.documentation import description, license_info, servers, tags_metadata
+from .api.models import ValidStatus
+from .order_event_adapter import OrderEventAdapter
 
 # Constants
 HDR_DATA = {

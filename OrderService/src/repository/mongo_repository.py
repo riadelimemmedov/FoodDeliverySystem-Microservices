@@ -1,12 +1,12 @@
 # BUILTIN modules
-from uuid import UUID
 from typing import List
+from uuid import UUID
 
 # Third party modules
 import ujson
+from motor.motor_asyncio import AsyncIOMotorClientSession
 from pymongo import DESCENDING
 from redis.asyncio import from_url
-from motor.motor_asyncio import AsyncIOMotorClientSession
 
 # Local modules
 from ..core.setup import config

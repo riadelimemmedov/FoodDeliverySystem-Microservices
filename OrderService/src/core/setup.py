@@ -4,13 +4,13 @@ import site
 from os import getenv
 from pathlib import Path
 from ssl import SSLContext
-from typing import Type, Tuple
+from typing import Tuple, Type
 
 # Third party modules
 from pydantic import Field, computed_field
 from pydantic_settings import (
-    PydanticBaseSettingsSource,
     BaseSettings,
+    PydanticBaseSettingsSource,
     SettingsConfigDict,
 )
 

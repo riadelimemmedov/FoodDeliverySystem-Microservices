@@ -2,23 +2,25 @@
 import contextlib
 from uuid import UUID
 
-# Third party modules
-from loguru import logger
-from uuid_extensions import uuid7
 from fastapi import HTTPException
 from httpx import AsyncClient, ConnectError, ConnectTimeout
 
-# Local modules
-from .models import PaymentResponse
+# Third party modules
+from loguru import logger
+from uuid_extensions import uuid7
+
 from ..broker.interface import IBroker
-from ..repository.models import PaymentModel
-from ..core.setup import config, SSL_CONTEXT
-from ..tools.url_cache import UrlServiceCache
+from ..core.setup import SSL_CONTEXT, config
 from ..repository.interface import IRepository
-from ..web.api.models import BillingCallback, BillingPayload, PaymentPayload
+from ..repository.models import PaymentModel
 
 # Third party services
 from ..services.stripe_service import stripe_service
+from ..tools.url_cache import UrlServiceCache
+from ..web.api.models import BillingCallback, BillingPayload, PaymentPayload
+
+# Local modules
+from .models import PaymentResponse
 
 # Constants
 HDR_DATA = {"Content-Type": "application/json"}

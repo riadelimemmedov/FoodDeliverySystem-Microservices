@@ -1,6 +1,6 @@
 # Third party modules
-from fastapi.security import APIKeyHeader
 from fastapi import HTTPException, Security, status
+from fastapi.security import APIKeyHeader
 
 # local modules
 from ..core.setup import config

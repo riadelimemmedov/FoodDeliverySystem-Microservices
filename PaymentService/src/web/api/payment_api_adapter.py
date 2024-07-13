@@ -2,8 +2,8 @@ from typing import Optional
 
 # Local modules
 from ...broker.interface import IBroker
-from ...repository.interface import IRepository
 from ...business.payment_handler import PaymentLogic
+from ...repository.interface import IRepository
 from .models import BillingCallback, PaymentPayload
 
 

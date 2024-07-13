@@ -1,15 +1,16 @@
 # BUILTIN modules
-from uuid import UUID
 from datetime import datetime
-from typing import Optional, List
+from typing import List, Optional
+from uuid import UUID
 
 # Third party modules
 from pydantic import BaseModel, ConfigDict, Field
 
+from ...repository.documentation import order_documentation as order_doc
+from ...repository.models import OrderItems, Status
+
 # Local modules
 from ..api.documentation import health_example
-from ...repository.models import Status, OrderItems
-from ...repository.documentation import order_documentation as order_doc
 
 
 # !-----------------------------------------------------------------------------

@@ -1,10 +1,11 @@
 # BUILTIN modules
-from uuid import UUID
 from typing import List
+from uuid import UUID
+
+from .interface import IRepository
 
 # Local modules
 from .models import OrderModel
-from .interface import IRepository
 
 
 # !------------------------------------------------------------------------
