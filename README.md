@@ -1,7 +1,8 @@
-# fastapi_messaging
+# Food Delivery System - Microservices
+
 <img width="85%" src="design_docs/order_container_diagram.png" alt=""/>
 
-# Food Delivery System - Microservices
+<hr/>
 
 This repository contains the source code for a microservices-based food delivery system. The system is composed of several independent services that work together to provide a complete food ordering and delivery experience.
 
