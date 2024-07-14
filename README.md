@@ -26,4 +26,24 @@ The food delivery system follows a microservices architecture, which provides se
 - **Fault Tolerance**: If one service fails, the others can continue to operate, ensuring the overall system's reliability.
 - **Technology Diversity**: Different services can be implemented using the most appropriate technologies for their specific requirements.
 
+## Used Technologies
+
+- **FastAPI**: For creating async and resilience rest api.
+- **Redis**: For managing cache and data consistency and for caching of Orders and Microservice URLs.
+- **Vault**: Managing secret values on docker side container.
+- **Prism CLI**: For mocking the behavior of several of my Microservices.
+- **Docker Desktop**: To manage the external components below.
+- **MongoDB**: Store data durable on key:value format.
+- **RabbitMQ**: Using as a message broker in event driven architecture system.
+- **Https**: Keep the communication between web services encrypted.
+- **API-key**: Authentication for the web service end points.
+
+## Architectural Patterns and Design Principles
+
+- **Hexagonal Architecture (Ports and Adapters)**: The system is designed using the Hexagonal Architecture pattern, which separates the core business logic from the infrastructure and external dependencies. This allows for better testability and flexibility in adapting to changes.
+- **Dependency Injection**: The project utilizes Dependency Injection to manage the dependencies between the various components and services. This promotes modularity, testability, and flexibility in the system.
+- **Repository Design Pattern**: The project uses the Repository design pattern to abstract the data access logic from the business logic. This separates the concerns and makes the codebase more maintainable and testable.
+- **Unit of Work**: The Unit of Work pattern is used to manage database transactions and ensure data consistency across multiple operations.
+- **Facade Pattern**: The Facade pattern is employed to provide a simplified interface to the complex underlying systems, making it easier for the clients to interact with the system.
+
 The overall architecture of the system is depicted in the following diagram:
