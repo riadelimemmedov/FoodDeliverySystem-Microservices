@@ -26,5 +26,5 @@ The overall architecture of the system is depicted in the following diagram:
 
 ```html
 <div style="text-align:center">
-  <img src="design_docs/food-delivery-system-architecture.png" alt="Food Delivery System Architecture" width="600">
+  <img src="design_docs/order_container_diagram.png" alt="Food Delivery System Architecture" width="600">
 </div>
