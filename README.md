@@ -26,6 +26,4 @@ The overall architecture of the system is depicted in the following diagram:
 
 ```html
 
-<div style="text-align:center">
-    <img width="85%" src="design_docs/order_container_diagram.png" alt=""/>
-</div>
+<img width="85%" src="design_docs/order_container_diagram.png" alt=""/>
